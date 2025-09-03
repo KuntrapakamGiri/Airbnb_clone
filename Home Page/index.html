@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="output.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Airbnb</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .active-nav {
+        border-bottom-width: 2px;
+        border-bottom-color: #ef4444;
+        font-weight: 500;
+      }
+    </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="main-header" class="sticky top-0 z-50 w-full bg-gray-100 shadow gradient transition-all duration-300 pb-4">
+    <div class="header-top max-w-7xl mx-auto flex items-center justify-between transition-all duration-300 origin-top scale-y-100 opacity-100" style="padding-top:12px; padding-bottom:12px;">
+      <!-- Logo + Brand -->
+      <div class="hidden md:flex items-center gap-2">
+        <img src="https://cdn-icons-png.flaticon.com/128/2111/2111320.png" alt="Airbnb Logo" class="w-8 h-8 object-contain"/>
+        <h3 class="hidden lg:block text-2xl font-semibold text-red-400">airbnb</h3>
+      </div>
+      <!-- Navigation -->
+      <nav id="main-nav" class="hidden md:flex gap-6 text-sm transition-all duration-300">
+        <a href="#home" id="nav-home" role="button" aria-label="Home" class="flex flex-row items-center hover:font-medium bg-transparent">
+          <img src="https://cdn-icons-png.flaticon.com/256/7057/7057605.png" class="w-5 h-5" alt=""><span>Home</span>
+        </a>
+        <a href="#experience" id="nav-experiences" role="button" aria-label="Experiences" class="flex flex-row items-center hover:font-medium bg-transparent">
+          <img src="https://cdn-icons-png.flaticon.com/128/3995/3995633.png" class="w-5 h-5" alt="Hot air ballon"><span>Experiences</span>
+        </a>
+        <a href="#services" id="nav-services" role="button" aria-label="Services" class="flex flex-row items-center hover:font-medium bg-transparent">
+          <img src="./assets/Airbnb Services – Enhance Your Stay with Vetted Local Professionals_files/2bf5d36d-e731-4465-a8ef-91abbf2ae8ce.png" class="w-7 h-7" alt=""><span>Services</span>
+        </a>
+      </nav>
+      <!-- Right section -->
+      <div class="flex items-center gap-4">
+        <h3 class="hidden lg:block text-sm font-semibold">Become a Host</h3>
+        <div class="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-gray-300 hover:bg-gray-100 cursor-pointer">
+          <img src="https://cdn-icons-png.flaticon.com/128/3917/3917538.png" alt="globe" class="w-4 h-4"/>
+        </div>
+        <div class="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-gray-300 hover:bg-gray-100 cursor-pointer">
+          <img src="https://cdn-icons-png.flaticon.com/128/3917/3917215.png" alt="user" class="w-4 h-4"/>
+        </div>
+      </div>
+    </div>
+    <!-- Search Bar (always visible) -->
+    <div class="w-full flex justify-center pb-4">
+      <div class="flex items-center w-full max-w-4xl bg-white border border-gray-300 rounded-full shadow-md">
+        <!-- Where -->
+        <div class="flex-1 flex flex-col justify-center text-left cursor-pointer hover:bg-gray-100 rounded-full px-6 py-4 transition">
+          <span class="text-xs font-semibold">Where</span>
+          <span class="text-sm text-gray-500">Search destinations</span>
+        </div>
+        <span class="h-6 w-px bg-gray-300"></span>
+        <!-- Check-in -->
+        <div class="flex-1 flex flex-col justify-center text-left cursor-pointer hover:bg-gray-100 rounded-full px-6 py-4 transition">
+          <span class="text-xs font-semibold">Check-in</span>
+          <span class="text-sm text-gray-500">Add dates</span>
+        </div>
+        <span class="h-6 w-px bg-gray-300"></span>
+        <!-- Check-out -->
+        <div class="flex-1 flex flex-col justify-center text-left cursor-pointer hover:bg-gray-100 rounded-full px-6 py-4 transition">
+          <span class="text-xs font-semibold">Check-out</span>
+          <span class="text-sm text-gray-500">Add dates</span>
+        </div>
+        <span class="h-6 w-px bg-gray-300"></span>
+        <!-- Type of service -->
+        <div class="flex-1 flex flex-col justify-center text-left cursor-pointer hover:bg-gray-100 rounded-full px-6 py-4 transition">
+          <span class="text-xs font-semibold">Type of service</span>
+          <span class="text-sm text-gray-500">Add service</span>
+        </div>
+        <!-- Search button -->
+        <button class="ml-3 flex items-center justify-center w-10 h-10 rounded-full bg-red-600 hover:bg-red-700 text-white relative right-3">
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               fill="none" 
+               viewBox="0 0 24 24" 
+               stroke="currentColor" 
+               class="w-5 h-5">
+            <path stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Loading Indicator -->
+  <div id="loading-indicator" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white bg-opacity-70 z-50">
+    <div class="flex flex-col items-center">
+      <svg class="animate-spin h-8 w-8 text-red-500 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+      </svg>
+      <span class="text-red-500 font-semibold">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content" class="bg-white space-y-10">
+    <!-- Content will be loaded dynamically -->
+  </main>
+
+  <footer class="w-full bg-gray-100 border-t pt-10">
+    <h1 class="text-2xl max-w-7xl mx-auto font-semibold mb-4">Inspiration for future getaways</h1>
+    <hr class="border-gray-200 max-w-7xl mx-auto pb-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-semibold mb-3">Support</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Help Centre</a></li>
+          <li><a href="#" class="hover:underline">Get help with a safety issue</a></li>
+          <li><a href="#" class="hover:underline">AirCover</a></li>
+          <li><a href="#" class="hover:underline">Anti-discrimination</a></li>
+          <li><a href="#" class="hover:underline">Disability support</a></li>
+          <li><a href="#" class="hover:underline">Cancellation options</a></li>
+          <li><a href="#" class="hover:underline">Report neighbourhood concern</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Hosting</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">Airbnb your home</a></li>
+          <li><a href="#" class="hover:underline">Airbnb your experience</a></li>
+          <li><a href="#" class="hover:underline">Airbnb your service</a></li>
+          <li><a href="#" class="hover:underline">AirCover for Hosts</a></li>
+          <li><a href="#" class="hover:underline">Hosting resources</a></li>
+          <li><a href="#" class="hover:underline">Community forum</a></li>
+          <li><a href="#" class="hover:underline">Hosting responsibly</a></li>
+          <li><a href="#" class="hover:underline">Join a free Hosting class</a></li>
+          <li><a href="#" class="hover:underline">Find a co-host</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Airbnb</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:underline">2025 Summer Release</a></li>
+          <li><a href="#" class="hover:underline">Newsroom</a></li>
+          <li><a href="#" class="hover:underline">Careers</a></li>
+          <li><a href="#" class="hover:underline">Investors</a></li>
+          <li><a href="#" class="hover:underline">Airbnb.org emergency stays</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-gray-200 max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto pt-5 pb-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="mb-2 md:mb-0">
+        © 2025 Airbnb, Inc. · 
+        <a href="#" class="hover:underline">Privacy</a> · 
+        <a href="#" class="hover:underline">Terms</a> · 
+        <a href="#" class="hover:underline">Sitemap</a> · 
+        <a href="#" class="hover:underline">Company details</a>
+      </p>
+      <div class="flex items-center gap-4">
+        <img src="https://cdn-icons-png.flaticon.com/128/3917/3917538.png" alt="globe" class="w-5 h-5">
+        <a href="#" class="flex items-center gap-1 hover:underline">
+          English (IN)
+        </a>
+        <a href="#" class="hover:underline">₹ INR</a>
+        <a href="#" aria-label="Facebook">
+          <img src="https://cdn-icons-png.flaticon.com/128/2175/2175193.png" alt="Facebook" class="w-5 h-5">
+        </a>
+        <a href="#" aria-label="Twitter">
+          <img src="https://img.icons8.com/?size=50&id=fJp7hepMryiw&format=png" alt="Twitter" class="w-5 h-5">
+        </a>
+        <a href="#" aria-label="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/128/1077/1077042.png" alt="Instagram" class="w-5 h-5">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
